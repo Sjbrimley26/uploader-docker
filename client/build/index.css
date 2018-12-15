@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: black;
+}
+
+.mainBody {
+  width: 320px;
+  height: 640px;
+  position: absolute;
+  left: calc(50% - 160px);
+  top: calc(50% - 320px);
+  border: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploader {
+  width: 150px;
+  height: 70px;
+  border: hidden;
+  border-radius: 16px;
+  font-size: 3em;
+  font-family: monospace;
+  text-shadow: 0 0 13px springgreen;
+  filter: drop-shadow(0 0 10px white);
+  cursor: pointer;
+}
+
+.progress--bar {
+  margin-top: 10px;
+  width: 250px;
+  height: 40px;
+  background: lightcyan;
+  border: 5px solid grey;
+  padding: 0px;
+  border-radius: 6px;
+}
+
+.progress--loaded {
+  height: 100%;
+  background: lightgreen;
+  width: 0;
+}
+
+.fileBox {
+  width: 95%;
+  background: white;
+  border: 5px solid darkgray;
+  border-radius: 4px;
+  height: 300px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.file {
+  box-sizing: content-box;
+  width: calc(100% - 6px);
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  margin: 3px;
+  min-height: 30px;
+  background: lightblue;
+}
+
+.filename {
+  width: 65%;
+  margin-right: 5%;
+  height: 80%;
+  display: inline-block;
+  word-break: break-all;
+}
+
+.download {
+  outline: none;
+  text-decoration: none;
+  background: lightgray;
+  color: black;
+  padding: 5px;
+  border: 1px dashed black;
+  cursor: pointer;
+}

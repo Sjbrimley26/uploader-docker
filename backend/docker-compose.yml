@@ -1,0 +1,51 @@
+version: "3.2"
+
+services:
+  api:
+    image: backend_api:latest
+    build: ./api
+    restart: always
+    deploy:
+      restart_policy:
+        condition: on-failure
+    ports: 
+      - 3000:3000
+    networks:
+      - local
+
+  uploader:
+    image: backend_uploader:latest
+    build: ./uploader
+    restart: always
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+    ports:
+      - 4000:4000
+    depends_on:
+      - api
+    networks:
+      - local
+    volumes:
+      - files:/src/files
+
+  downloader:
+    image: backend_downloader:latest
+    build: ./downloader
+    restart: always
+    ports:
+      - 3005:3005
+    depends_on:
+      - api
+    networks:
+      - local
+    volumes:
+      - files:/src/files
+
+
+volumes:
+  files:
+
+networks:
+  local:
